@@ -7,19 +7,21 @@
 ## Algorithm
 
 * Initialize `dummy` as the head of the new linked list
-* Initialize `current` as first node of the new linked list
+* `curr = dummy` for traversing the new linked list
 * Initialize `p` and `q` to heads of `L1` and `L2`
 * `carry = 0`
 * Loop until the end of `L1` and `L2`
-	* `x = p.val` - if we’ve already hit the end of `L1`, `x = 0`
-	* `y = q.val` - if we’ve already hit the end of `L2`, `y = 0`
+	* if `p` is not None, `a = p.val`, then move `p` forward
+	* if `q` is not None, `a = q.val`, then move `q` forward
 	* `sum = x + y + carry`
 	* `carry = int(sum / 10)`
 	* `sum = sum % 10`
-	* `current.val = sum`
+	* Create a new node with a value of `sum` and point `curr` to it
+	* `curr.val = sum`
 	* `current = current.next`
 * If `carry == 1`, add a new node with value of `1` at the end of the returning list - edge case
-* Return `dummy`
+* `result = dummy.next` and delete `dummy`, since it’s an empty node
+* Return `result.next`
 
 ## Edge cases
 
