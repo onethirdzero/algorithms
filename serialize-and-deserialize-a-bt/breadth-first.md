@@ -7,11 +7,11 @@
 * Say we serialize it as a string
 
 ```py
-class Node:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+class TreeNode:
+	def __init__(self, val, left=None, right=None):
+		self.val = val
+		self.left = left
+		self.right = right
 ```
 
 ### Serialize
@@ -25,6 +25,9 @@ class Node:
 
 ```py
 def serialize(root):
+	# Base case.
+	if root is None: return ''
+
 	q = Queue()
 	s = ''
 	q.put(root)
@@ -72,27 +75,30 @@ def serialize(root):
 
 ```py
 def deserialize(s):
+	# Base case.
+	if len(data) == 0: return None
+
 	q = Queue()
 	lst = s.split(',')
-	root = Node(lst[0])
+	root = TreeNode(lst[0])
 	curr = root
 	visited_left = visited_right = False
 
 	for i in range(1, len(lst)):
 		if not visited_left:
 			if lst[i] is not '?':
-				curr.left = Node(lst[i])
+				curr.left = TreeNode(lst[i])
 			visited_left = True
 		elif not visited_right:
 			if lst[i] is not '?':
-				curr.right = Node(lst[i])
+				curr.right = TreeNode(lst[i])
 			visited_right = True
 		else:
 			if curr.left is not None: q.put(curr.left)
 			if curr.right is not None: q.put(curr.right)
 			curr = q.get()
 			if lst[i] is not '?':
-				curr.left = Node(lst[i])
+				curr.left = TreeNode(lst[i])
 			# Because we've just visited left.
 			visited_right = False
 
