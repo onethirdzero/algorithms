@@ -95,3 +95,8 @@ addr(C) = both(B) xor addr(A)
 
 * Therefore, when we traverse an XOR linked list, we always need to remember the address of the previous node
 * Note that we can only start traversal from the head or the tail of the list, because we always need a complementary address to derive the next or previous address from `both`
+
+* [algorithm - How exactly does a XOR Linked list work? - Stack Overflow](https://stackoverflow.com/questions/16138998/how-exactly-does-a-xor-linked-list-work)
+* The XOR of the 2 pointers will not be recognized by anything except our code
+* It also slows down pointer access since we always need to do an XOR operation to recover the true pointer first
+* XOR-ed pointers are also not recognized by garbage collectors - so they can’t be used in certain languages
