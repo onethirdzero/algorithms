@@ -16,9 +16,9 @@
 
 ## Complexity
 
-* Time: O(n^2)
+* Time: `O(n^2)`
     * On the way back up the recursion, we check if the current subtree is unival by visiting each of its nodes
-* Space: O(1)
+* Space: `O(1)`
 
 ## Comments
 
