@@ -95,13 +95,14 @@ class Solution:
                 s[i] = ' '
                 i += 1
 
-        # Convert the subarray into a string and return.
-        return ''.join(s[0:i])
+        # Convert the subarray into a string, trim the trailing space and return.
+        return ''.join(s[0:i]).rstrip()
 
     def test(self):
-        print(self.reverseWords('the sky is blue'))
-        print(self.reverseWords('  the   sky  is    blue  '))
-        print(self.reverseWords('   '))
+        print(repr(self.reverseWords('the sky is blue')))
+        print(repr(self.reverseWords('  the   sky  is    blue  ')))
+        print(repr(self.reverseWords('   ')))
+        print(repr(self.reverseWords('   the')))
 
 sol = Solution()
 sol.test()
