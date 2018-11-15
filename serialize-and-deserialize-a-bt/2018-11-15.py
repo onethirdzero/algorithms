@@ -29,6 +29,8 @@ before joining both to the root.
 - Uses O(n) space.
     - An unbalanced tree will fill up the queue with only values smaller than
     root or only values larger than root.
+
+- Still doesn't work for some test cases on LeetCode. Incomplete.
 """
 
 from collections import deque
@@ -66,6 +68,7 @@ class Codec:
             serialized += str(root.val) + self.DELIMITER
 
             # Serialize left and right children if they exist.
+            # We serialize the right subtree first.
             if root.right is not None:
                 stack.append(root.right)
             if root.left is not None:
