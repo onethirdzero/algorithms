@@ -37,6 +37,7 @@ Note:
 
 - The key point here is making sure that each contiguous block of a character in `typed` has a count of at least the count of the corresponding character block in `name`.
     - eg. name = 'abc', typed = 'aabbbcc' - each character in typed has a count of at least 1.
+- Good pattern to know for character comparisons.
 """
 
 
