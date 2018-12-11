@@ -36,7 +36,7 @@ class Solution:
         :type matrix: List[List[int]]
         :rtype: List[int]
         """
-        if matrix is None:
+        if len(matrix) == 0:
             return []
 
         rows, cols = len(matrix), len(matrix[0])
