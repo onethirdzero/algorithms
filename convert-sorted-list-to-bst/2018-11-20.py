@@ -110,6 +110,9 @@ class Solution:
         self._printTree(root)
 
     def _printTree(self, root):
+        """
+        Does an inorder traversal and prints nodes in a given tree.
+        """
         if root is None:
             return
 
