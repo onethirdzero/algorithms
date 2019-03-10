@@ -27,18 +27,21 @@ A solution set is:
   [2,3,3],
   [3,5]
 ]
-
-- Runs in exponential time - not sure how to break it down.
-- Uses O(k / smallest candidate) space, where k is target?
-
-- Python is a little trickier to backtrack with because it's pass by object reference.
-    - If we modify current_solution by appending to it, we need to make sure it gets popped too at the end of the recursion too - I'm still not sure how to do this properly.
-    - What I've fallen back to is passing current_solution + [candidate[i]] to the recursive call - this doesn't permanently mutate current_solution, but changes it enough to do the job - my guess is that current_solution is probably still [] at the end of all the recursion
 """
 
-
 class Solution(object):
-    # https://leetcode.com/problems/combination-sum/discuss/16502/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partitioning)
+    """
+    https://leetcode.com/problems/combination-sum/discuss/16502/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partitioning)
+
+    - Runs in O(2^n) time.
+        - https://leetcode.com/problems/combination-sum/discuss/16634/If-asked-to-discuss-the-time-complexity-of-your-solution-what-would-you-say/16467
+    - Uses O(k / smallest candidate) space, where k is target?
+
+    - Python is a little trickier to backtrack with because it's pass by object reference.
+        - If we modify current_solution by appending to it, we need to make sure it gets popped too at the end of the recursion too - I'm still not sure how to do this properly.
+        - What I've fallen back to is passing current_solution + [candidate[i]] to the recursive call - this doesn't permanently mutate current_solution, but changes it enough to do the job - my guess is that current_solution is probably still [] at the end of all the recursion
+
+    """
     def combinationSum(self, candidates, target):
         """
         :type candidates: List[int]
